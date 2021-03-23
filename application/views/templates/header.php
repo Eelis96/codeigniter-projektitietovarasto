@@ -2,6 +2,7 @@
         <head>
             <title>Projektitietovarasto</title>
             <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.css">
         </head>
         <body>
 
@@ -14,10 +15,10 @@
                     <a class="nav-link" href="<?php echo base_url(); ?>">Etusivu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>about">Tietoa</a>
+                    <a class="nav-link" href="<?php echo base_url(); ?>tietoa">Tietoa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>posts">Projektit</a>
+                    <a class="nav-link" href="<?php echo base_url(); ?>projects">Projektit</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
