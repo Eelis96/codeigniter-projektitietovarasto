@@ -20,16 +20,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url(); ?>projects">Projektit</a>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="nav-link" href="<?php echo base_url(); ?>posts/create">Lisää Projekti</a>             
+                    <a class="nav-link" href="<?php echo base_url(); ?>projects/add">Lisää Projekti</a>             
                 </li>
                 <li>
-                    <a class="nav-link" href="<?php echo base_url(); ?>categories/create">Kirjaudu Sisään</a>             
+                    <a class="nav-link" href="<?php echo base_url(); ?>users/register">Rekisteröidy</a>             
+                </li>
+                <li>
+                    <a class="nav-link" href="<?php echo base_url(); ?>users/login">Kirjaudu Sisään</a>             
                 </li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
+        <?php if($this->session->flashdata('user_registered')): ?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
+        <?php endif; ?>
+        <?php if($this->session->flashdata('project_added')): ?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('project_added').'</p>'; ?>
+        <?php endif; ?>
+        <?php if($this->session->flashdata('project_deleted')): ?>
+            <?php echo '<p class="alert alert-warning">'.$this->session->flashdata('project_deleted').'</p>'; ?>
+        <?php endif; ?>
