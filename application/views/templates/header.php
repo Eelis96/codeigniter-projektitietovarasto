@@ -20,15 +20,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url(); ?>projects">Projektit</a>
                 </li>
-                <li>
-                    <a class="nav-link" href="<?php echo base_url(); ?>projects/add">Lisää Projekti</a>             
-                </li>
-                <li>
-                    <a class="nav-link" href="<?php echo base_url(); ?>users/register">Rekisteröidy</a>             
-                </li>
-                <li>
-                    <a class="nav-link" href="<?php echo base_url(); ?>users/login">Kirjaudu Sisään</a>             
-                </li>
+                <?php if(!$this->session->userdata('logged_in')) : ?>
+                    <li>
+                        <a class="nav-link" href="<?php echo base_url(); ?>users/login">Kirjaudu Sisään</a>             
+                    </li>
+                    <li>
+                        <a class="nav-link" href="<?php echo base_url(); ?>users/register">Rekisteröidy</a>             
+                    </li>
+                <?php endif; ?>
+                <?php if($this->session->userdata('logged_in')) : ?>
+                    <li>
+                        <a class="nav-link" href="<?php echo base_url(); ?>projects/add">Lisää Projekti</a>             
+                    </li>
+                    <li>
+                        <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Kirjaudu Ulos</a>             
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
@@ -42,4 +49,13 @@
         <?php endif; ?>
         <?php if($this->session->flashdata('project_deleted')): ?>
             <?php echo '<p class="alert alert-warning">'.$this->session->flashdata('project_deleted').'</p>'; ?>
+        <?php endif; ?>
+        <?php if($this->session->flashdata('login_failed')): ?>
+            <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+        <?php endif; ?>
+        <?php if($this->session->flashdata('user_loggedin')): ?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?>
+        <?php endif; ?>
+        <?php if($this->session->flashdata('user_loggedout')): ?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
         <?php endif; ?>

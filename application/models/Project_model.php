@@ -19,6 +19,7 @@
             $data = array(
                 'title' => $this->input->post('title'),
                 'body' => $this->input->post('description'),
+                'user_id' => $this->session->userdata('user_id'),
                 'created_at' => $this->input->post('date')
             );
 

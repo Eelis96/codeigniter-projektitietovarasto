@@ -11,6 +11,10 @@
         }
 
         public function add(){
+            if(!$this->session->userdata('logged_in')){
+                redirect('users/login');
+            }
+
             $data['title'] = 'Lisää Projekti';
 
             $this->form_validation->set_rules('title', 'Otsikko', 'required');
@@ -30,6 +34,10 @@
         }
 
         public function delete($id){
+            if(!$this->session->userdata('logged_in')){
+                redirect('users/login');
+            }
+
             $this->project_model->delete_project($id);
             $this->session->set_flashdata('project_deleted', 'Projekti Poistettu!');
             redirect('projects');
