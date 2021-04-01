@@ -8,7 +8,7 @@
 
     <?php if($this->session->userdata('user_id') == $project['user_id']): ?>
         <hr>
-        <?php echo form_open('/projects/delete'.$project['id']); ?>
+        <?php echo form_open('/projects/delete/'.$project['id']); ?>
         <input type="submit" value="Delete" class="btn btn-danger">
         </form>
     <?php endif; ?>
