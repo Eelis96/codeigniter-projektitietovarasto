@@ -3,8 +3,8 @@ class User_model extends CI_Model{
     public function register($enc_password){
         $data = array(
             'username' => $this->input->post('username'),
-            'password' => $enc_password
-            
+            'password' => $enc_password,
+            'is_admin' => 0
         );
 
         return $this->db->insert('users', $data);

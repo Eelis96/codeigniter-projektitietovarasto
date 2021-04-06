@@ -42,9 +42,10 @@
                 if($result){
 
                     $user_data = array(
-                        'user_id' =>$result['id'],
+                        'user_id' => $result['id'],
                         'username' => $username,
-                        'logged_in' => true
+                        'logged_in' => true,
+                        'is_admin' => $result['is_admin']
                     );
 
                     $this->session->set_userdata($user_data);

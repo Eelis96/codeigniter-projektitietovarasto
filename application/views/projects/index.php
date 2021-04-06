@@ -6,7 +6,7 @@
         <small class="post-date">Tehty: <?php echo $project['created_at']; ?></small><br>
         <?php echo $project['body']; ?>
 
-    <?php if($this->session->userdata('user_id') == $project['user_id']): ?>
+    <?php if($this->session->userdata('user_id') == $project['user_id'] || $this->session->userdata('is_admin') == 1): ?>
         <hr>
         <?php echo form_open('/projects/delete/'.$project['id']); ?>
         <input type="submit" value="Delete" class="btn btn-danger">
