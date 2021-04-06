@@ -67,6 +67,7 @@
             $this->session->unset_userdata('logged_in');
             $this->session->unset_userdata('user_id');
             $this->session->unset_userdata('username');
+            $this->session->unset_userdata('is_admin');
 
             $this->session->set_flashdata('user_loggedout', 'Kirjauduit Ulos');
 
